@@ -33,7 +33,7 @@ def setup_gamepad(
     guid = gamepad.device.get_guid()
     print(type(gamepad.device))
     # <class 'pyglet.input.win32.directinput.DirectInputDevice'>
-    print(f"product guid Data1: {gamepad.device.product_guid.Data1}")
+    # print(f"product guid Data1: {gamepad.device.product_guid.Data1}")
     # 32760 without window
     # 0 with window
 
@@ -82,3 +82,6 @@ if __name__ == "__main__":
 # https://armchairarcade.com/perspectives/2016/04/25/review-buffalo-classic-usb-gamepad-super-nes-style/
 # Works with games, used to work with pyglet, works with pygame
 # Pygame gives the guid as 0300dafe830500006020000000000000 and calls it "USB,2-axis 8-button gamepad"
+
+# Broken in this commit:
+# https://github.com/pyglet/pyglet/commit/6357ce0707e152fc13473b052a024e431003af1d
