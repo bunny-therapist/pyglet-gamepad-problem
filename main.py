@@ -99,7 +99,4 @@ if __name__ == "__main__":
 # gamepad-tool gives the same values
 
 # Broken in this commit:
-# https://github.com/pyglet/pyglet/commit/6357ce0707e152fc13473b052a024e431003af1d
-
-
-# TODO: Try PS4 controller with pygame and arcade
+# https://github.com/pyglet/pyglet/commit/2eb3cfed327c81dce5cc2a8223ef1085881d9e4f
