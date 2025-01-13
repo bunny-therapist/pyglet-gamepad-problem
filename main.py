@@ -57,7 +57,16 @@ def setup_gamepad(
 
 if __name__ == "__main__":
     print(f"pyglet v{pyglet.version}")  # pyglet v2.1.0
-    window = pyglet.window.Window()  # Commenting this out changes guid of gamepad
+
+    # print(get_joysticks()[0].device.get_guid())
+    # For broken pyglet, this gives 03000000f87f00000000000000000000
+    # Working pyglet gives 03000000830500006020000000000000
+
+    window = pyglet.window.Window()
+
+    # print(get_joysticks()[0].device.get_guid())
+    # For broken pyglet, this gives 03000000000000000000000000000000
+    # Working pyglet gives 03000000830500006020000000000000
 
     joysticks = get_joysticks()
     print(f"Found joysticks: {joysticks}")
@@ -83,5 +92,14 @@ if __name__ == "__main__":
 # Works with games, used to work with pyglet, works with pygame
 # Pygame gives the guid as 0300dafe830500006020000000000000 and calls it "USB,2-axis 8-button gamepad"
 
+# When it was still working in pyglet, it had
+# 'guid': '03000000830500006020000000000000'
+# 'name': 'iBuffalo SNES Controller*
+
+# gamepad-tool gives the same values
+
 # Broken in this commit:
 # https://github.com/pyglet/pyglet/commit/6357ce0707e152fc13473b052a024e431003af1d
+
+
+# TODO: Try PS4 controller with pygame and arcade

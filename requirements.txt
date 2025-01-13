@@ -1,2 +1,7 @@
-pyglet
+# Last working commit:
+pyglet @ git+https://github.com/pyglet/pyglet@2f09a8c35296513b0e3229fac3a7a66f8b816655
+
+# First broken commit:
+# pyglet @ git+https://github.com/pyglet/pyglet@6357ce0707e152fc13473b052a024e431003af1d
+
 pygame
