@@ -1,5 +1,8 @@
+# Fixed commit:
+pyglet @ git+https://github.com/pyglet/pyglet@7dd568c3fa26f08a023b93394cd1f04ad0eabcbf
+
 # First broken commit:
-pyglet @ git+https://github.com/pyglet/pyglet@2eb3cfed327c81dce5cc2a8223ef1085881d9e4f
+#pyglet @ git+https://github.com/pyglet/pyglet@2eb3cfed327c81dce5cc2a8223ef1085881d9e4f
 
 # Last working commit:
 # pyglet @ git+https://github.com/pyglet/pyglet@c09fe4e69d0f9c48a2544c9111f4c6c259575a3d
