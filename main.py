@@ -6,29 +6,6 @@ from pyglet.input.controller import get_mapping
 def setup_gamepad(
     gamepad,
 ) -> None:
-    def on_button_press(controller, key: str) -> None:
-        print(f"{key} pressed on {controller}")
-
-    def on_button_release(controller, key: str) -> None:
-        print(f"{key} released on {controller}")
-
-    def on_dpad_motion(
-        controller,
-        left: bool,
-        right: bool,
-        up: bool,
-        down: bool,
-    ) -> None:
-        pressed = []
-        if left:
-            pressed.append("L")
-        if right:
-            pressed.append("R")
-        if up:
-            pressed.append("U")
-        if down:
-            pressed.append("D")
-        print(f"dpad motion: {pressed} on {controller}")
 
     guid = gamepad.device.get_guid()
     print(type(gamepad.device))
@@ -51,9 +28,23 @@ def setup_gamepad(
     game_controller = Controller(
         gamepad.device, mapping
     )
+
+    @game_controller.event
+    def on_button_press(controller, key: str) -> None:
+        print(f"{key} pressed on {controller}")
+
+    @game_controller.event
+    def on_button_release(controller, key: str) -> None:
+        print(f"{key} released on {controller}")
+
+    @game_controller.event
+    def on_dpad_motion(
+        controller,
+        xy,
+    ) -> None:
+        print(f"dpad motion: {xy} on {controller}")
+
     game_controller.open()
-    handlers = (on_button_press, on_button_release, on_dpad_motion)
-    game_controller.push_handlers(*handlers)
 
 if __name__ == "__main__":
     print(f"pyglet v{pyglet.version}")  # pyglet v2.1.0
@@ -76,7 +67,7 @@ if __name__ == "__main__":
     print(f"Found controllers: {controllers}")
     # Found controllers: [] - why is this not a controller?
 
-    gamepad = joysticks[0]
+    gamepad = controllers[0]
     print(gamepad)  # Joystick(device=USB,2-axis 8-button gamepad  )
 
     setup_gamepad(gamepad)
